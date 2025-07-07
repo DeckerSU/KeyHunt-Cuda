@@ -1,0 +1,42 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Build and Launch KeyHunt",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/KeyHunt-Cuda/KeyHunt",
+      "args": [
+        "-t", "4",
+        "--range", "1:ff",
+        "--coin", "BTC",
+        "-m", "addresses",
+        "-i", "hash160_out_sorted.bin"
+      ],
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "preLaunchTask": "build KeyHunt debug"
+    },
+    {
+      "name": "Launch KeyHunt",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/KeyHunt-Cuda/KeyHunt",
+      "args": [
+        "-t", "4",
+        "--range", "1:ff",
+        "--coin", "BTC",
+        "-m", "addresses",
+        "-i", "hash160_out_sorted.bin"
+      ],
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+    }
+  ]
+}

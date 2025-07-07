@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build KeyHunt debug",
+      "type": "shell",
+      "command": "make",
+      "args": ["debug=1", "all"],
+      "options": {
+        "cwd": "${workspaceFolder}/KeyHunt-Cuda"
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "build KeyHunt release",
+      "type": "shell",
+      "command": "make",
+      "args": ["all"],
+      "options": {
+        "cwd": "${workspaceFolder}/KeyHunt-Cuda"
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+  ]
+}
