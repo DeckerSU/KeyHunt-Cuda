@@ -57,9 +57,11 @@ inline uint32_t _rotr(uint32_t x, uint8_t r)
     h = t1 + t2;
 
 #ifdef BSWAP
-#define WRITEBE32(ptr,x) *((uint32_t *)(ptr)) = _byteswap_ulong(x)
-#define WRITEBE64(ptr,x) *((uint64_t *)(ptr)) = _byteswap_uint64(x)
-#define READBE32(ptr) (uint32_t)_byteswap_ulong(*(uint32_t *)(ptr))
+typedef uint32_t  u32a __attribute__((__may_alias__));
+typedef uint64_t  u64a __attribute__((__may_alias__));
+#define READBE32(ptr)     __builtin_bswap32(*(const u32a *)(ptr))
+#define WRITEBE32(ptr, x) (*(_sha256::u32a *)(ptr) = __builtin_bswap32(x))
+#define WRITEBE64(ptr, x) (*(_sha256::u64a *)(ptr) = __builtin_bswap64(x))
 #else
 #define WRITEBE32(ptr,x) *(ptr) = x
 #define WRITEBE64(ptr,x) *(ptr) = x
